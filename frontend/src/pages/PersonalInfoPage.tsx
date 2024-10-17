@@ -1,6 +1,16 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useUserData } from '../context/UserDataContext';
+import Layout from '../components/Layout'; 
+import Button from '../components/Button';
+import Card from '../components/Card';
+import Label from '../components/Label';
+import Input from '../components/Input';
+import Select from '../components/Select';
+import Progress from '../components/Progress';
+import { Mail, User, Calendar } from 'lucide-react'; 
+
+const steps = ['Persönliche Daten', 'Talente', 'Hobbys', 'Fächer', 'Arbeitspräferenzen', 'Ergebnisse'];
 
 const PersonalInfoPage: React.FC = () => {
   const { userData, setUserData } = useUserData();
@@ -8,7 +18,6 @@ const PersonalInfoPage: React.FC = () => {
   const [age, setAge] = useState<number | undefined>(userData.age || undefined);
   const [status, setStatus] = useState(userData.status || '');
   const [email, setEmail] = useState(userData.email || '');
-
   const navigate = useNavigate();
 
   const handleSubmit = async (event: React.FormEvent) => {
@@ -55,94 +64,89 @@ const PersonalInfoPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background flex flex-col items-center justify-center p-6">
-      <div className="w-full max-w-md bg-card p-6 rounded-lg shadow-md">
-        <h2 className="text-2xl font-semibold text-center mb-6">Persönliche Daten</h2>
-
-        <form onSubmit={handleSubmit}>
-          {/* Name Input */}
-          <div className="mb-4">
-            <label htmlFor="name" className="label">Dein Name</label>
-            <input
-              id="name"
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              className="input"
-              placeholder="Dein vollständiger Name"
-              required
-            />
+    <Layout> {/* Wrapping in Layout */}
+      <div className="min-h-screen bg-background py-12 px-4 sm:px-6 lg:px-8">
+        <Card className="max-w-2xl mx-auto">
+          <div className="text-center mb-6">
+            <h2 className="text-3xl font-semibold">Persönliche Daten</h2>
+            <p className="text-muted-foreground">Fülle das Formular aus, um fortzufahren.</p>
           </div>
+          <form onSubmit={handleSubmit}>
+            <div className="space-y-4">
+              <div>
+                <Label htmlFor="name">Dein Name</Label>
+                <div className="relative">
+                  <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-primary" size={18} />
+                  <Input
+                    id="name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="Dein Name"
+                    className="pl-10"
+                    required
+                  />
+                </div>
+              </div>
 
-          {/* Age Input */}
-          <div className="mb-4">
-            <label htmlFor="age" className="label">Alter</label>
-            <input
-              id="age"
-              type="number"
-              value={age || ''}
-              onChange={(e) => setAge(Number(e.target.value))}
-              className="input"
-              placeholder="Dein Alter"
-              required
-            />
-          </div>
+              <div>
+                <Label htmlFor="status">Aktueller Status</Label>
+                <Select
+                  id="status"
+                  value={status}
+                  onChange={(e) => setStatus(e.target.value)}
+                  required // Add required to Select
+                >
+                  <option value="" disabled>Wähle deinen aktuellen Status</option>
+                  <option value="Student">Student</option>
+                  <option value="Angestellt">Angestellt</option>
+                </Select>
+              </div>
 
-          {/* Status Dropdown */}
-          <div className="mb-4">
-            <label htmlFor="status" className="label">Aktueller Status</label>
-            <select
-              id="status"
-              value={status}
-              onChange={(e) => setStatus(e.target.value)}
-              className="input"
-              required
-            >
-              <option value="" disabled>Wähle deinen aktuellen Status</option>
-              <option value="Student">Student</option>
-              <option value="Angestellt">Angestellt</option>
-            </select>
-          </div>
+              <div>
+                <Label htmlFor="age">Alter</Label>
+                <div className="relative">
+                  <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-primary" size={18} />
+                  <Input
+                    id="age"
+                    type="number"
+                    value={age || ''}
+                    onChange={(e) => setAge(Number(e.target.value))}
+                    placeholder="Dein Alter"
+                    className="pl-10"
+                    required
+                  />
+                </div>
+              </div>
 
-          {/* Email Input */}
-          <div className="mb-6">
-            <label htmlFor="email" className="label">Email Adresse</label>
-            <input
-              id="email"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="input"
-              placeholder="Deine Email Adresse"
-              required
-            />
-          </div>
+              <div>
+                <Label htmlFor="email">Email Adresse</Label>
+                <div className="relative">
+                  <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-primary" size={18} />
+                  <Input
+                    id="email"
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Deine Email Adresse"
+                    className="pl-10"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
 
-          {/* Submit Button */}
-          <button
-            type="submit"
-            className="btn btn-primary w-full"
-          >
-            Weiter
-          </button>
-        </form>
-      </div>
+            <div className="mt-8">
+              <Button type="submit" className="w-full">Weiter</Button> {/* Updated Button */}
+            </div>
+          </form>
+        </Card>
 
-      {/* Progress Bar */}
-      <div className="w-full max-w-md mt-8">
-        <div className="flex justify-between text-sm">
-          <span className="font-semibold">Persönliche Daten</span>
-          <span>Talente</span>
-          <span>Hobbys</span>
-          <span>Fächer</span>
-          <span>Arbeitspräferenzen</span>
-          <span>Ergebnisse</span>
-        </div>
-        <div className="relative mt-2 h-2 bg-border rounded-full">
-          <div className="absolute left-0 top-0 h-2 bg-primary rounded-full" style={{ width: '16%' }}></div>
+        <div className="max-w-2xl mx-auto mt-8">
+          {/* Application Progress Bar */}
+          <Progress currentStep={1} totalSteps={6} steps={steps} /> {/* Use steps prop */}
         </div>
       </div>
-    </div>
+    </Layout>
   );
 };
 

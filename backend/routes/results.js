@@ -27,11 +27,7 @@ router.post('/', async (req, res) => {
     // Log GPT response
     console.log('GPT Response:', gptResponse);
 
-    // Add GPT response to userInfo object
-    const updatedUserInfo = {
-      ...userInfo,
-      gptResponse
-    };
+    
 
     // Log the user info that will be saved to the database
     console.log('Saving to database:', JSON.stringify(updatedUserInfo, null, 2));
@@ -42,8 +38,8 @@ router.post('/', async (req, res) => {
     // Log DB response
     console.log('Database Save Response:', dbResponse);
 
-    // Return both GPT and DB responses
-    res.status(200).json({ gptResponse, dbResponse });
+    // Return both GPT and DB responses, along with parsed careers
+    res.status(200).json({ gptResponse, parsedCareers, dbResponse });
   } catch (error) {
     // Log detailed error
     console.error('Error processing results:', error.message);

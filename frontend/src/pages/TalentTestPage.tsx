@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { scenarios } from '../data/scenarios';
-import { talents } from '../data/talents';  // Keep using talents here to calculate initial scores
+import { talents } from '../data/talents';  
 import { useNavigate } from 'react-router-dom';
 import { useUserData } from '../context/UserDataContext';
+import Card from '../components/Card';  // Importing Card for wrapping content
+import Button from '../components/Button';  // Importing Button for custom styles
+import Progress from '../components/Progress';  // Application Progress bar component
+import Layout from '../components/Layout';  // Importing Layout to wrap content
 
 const TalentTestPage: React.FC = () => {
   const { userData, updateUserData } = useUserData();
@@ -18,9 +22,6 @@ const TalentTestPage: React.FC = () => {
         initialTalentScores[talent.id] = 0;
       });
       updateUserData({ talentTestResults: initialTalentScores });
-
-      // Log initial talent scores for debugging
-      console.log('Initial talent scores:', initialTalentScores);
     }
   }, [userData.talentTestResults, updateUserData]);
 
@@ -47,7 +48,6 @@ const TalentTestPage: React.FC = () => {
         throw new Error('Failed to submit talent test results');
       }
 
-      console.log('Talent test results submitted successfully');
     } catch (error) {
       console.error('Error submitting talent test results:', error);
     }
@@ -67,11 +67,6 @@ const TalentTestPage: React.FC = () => {
       updatedScores[talent.talentId] += talent.weight;
     });
 
-    // Log selected answer and updated talent scores for debugging
-    console.log('Selected answer:', selectedAnswer);
-    console.log('Updated talent scores:', updatedScores);
-
-    // Update user data with new talentTestResults
     updateUserData({ talentTestResults: updatedScores });
 
     // POST the updated talent scores to the backend
@@ -82,8 +77,6 @@ const TalentTestPage: React.FC = () => {
     if (currentScenarioIndex < scenarios.length - 1) {
       setCurrentScenarioIndex(currentScenarioIndex + 1);
     } else {
-      // Log final scores and navigate to the next page
-      console.log('Test completed. Final talent scores:', updatedScores);
       navigate('/interests', { state: { talentScores: updatedScores } });
     }
   };
@@ -91,56 +84,53 @@ const TalentTestPage: React.FC = () => {
   const currentScenario = scenarios[currentScenarioIndex];
 
   return (
-    <div className="min-h-screen bg-background flex flex-col items-center justify-center p-6">
-      <div className="w-full max-w-xl bg-card p-6 rounded-lg shadow-md">
+    <Layout>
+      <div className="min-h-screen bg-background flex flex-col items-center justify-center p-6">
+        {/* Talente Test Header */}
         <h2 className="text-xl font-semibold text-center mb-6">Talente Test</h2>
 
-        {/* Scenario Question */}
-        <p className="text-lg mb-4">{currentScenario.question}</p>
+        {/* Main content without hover effect */}
+        <Card className="w-full max-w-xl p-6 rounded-lg shadow-md hover:scale-100 transition-none">
+          <p className="text-lg mb-4">{currentScenario.question}</p>
 
-        {/* Answer Options */}
-        <div className="space-y-4">
-          {currentScenario.answers.map((answer) => (
-            <label key={answer.id} className="flex items-center space-x-2">
-              <input
-                type="radio"
-                value={answer.id}
-                checked={selectedAnswerId === answer.id}
-                onChange={() => handleAnswerSelection(answer.id)}
-                className="form-radio text-primary"
-              />
-              <span>{answer.text}</span>
-            </label>
-          ))}
-        </div>
+          <div className="space-y-4">
+            {currentScenario.answers.map((answer) => (
+              <label key={answer.id} className="flex items-center space-x-2">
+                <input
+                  type="radio"
+                  value={answer.id}
+                  checked={selectedAnswerId === answer.id}
+                  onChange={() => handleAnswerSelection(answer.id)}
+                  className="form-radio text-primary"
+                />
+                <span>{answer.text}</span>
+              </label>
+            ))}
+          </div>
 
-        {/* Submit Button */}
-        <div className="mt-6 text-center">
-          <button
-            onClick={handleSubmitAnswer}
-            className="btn btn-primary hover-scale"
-            disabled={!selectedAnswerId}
-          >
-            Weiter
-          </button>
-        </div>
+          <div className="mt-6 text-center">
+            <Button
+              onClick={handleSubmitAnswer}
+              disabled={!selectedAnswerId}
+              className="hover-scale"
+            >
+              {currentScenarioIndex < scenarios.length - 1 ? 'Weiter' : 'Hobbys'}
+            </Button>
+          </div>
 
-        {/* Scenario Counter */}
-        <div className="mt-6 text-center text-muted-foreground">
-          Scenario {currentScenarioIndex + 1} of {scenarios.length}
-        </div>
+          <div className="mt-6 text-center text-muted-foreground">
+            Scenario {currentScenarioIndex + 1} of {scenarios.length}
+          </div>
+        </Card>
+
+        {/* Application Progress Bar */}
+        <Progress 
+          currentStep={2} 
+          totalSteps={6} 
+          steps={['Persönliche Daten', 'Talente', 'Hobbys', 'Fächer', 'Arbeitspräferenzen', 'Ergebnisse']} 
+        />
       </div>
-
-      {/* Progress Bar */}
-      <div className="w-full max-w-xl mt-8">
-        <div className="relative h-2 bg-border rounded-full">
-          <div
-            className="absolute left-0 top-0 h-2 bg-primary rounded-full"
-            style={{ width: `${((currentScenarioIndex + 1) / scenarios.length) * 100}%` }}
-          ></div>
-        </div>
-      </div>
-    </div>
+    </Layout>
   );
 };
 
