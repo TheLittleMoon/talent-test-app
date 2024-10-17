@@ -1,0 +1,200 @@
+/* eslint-disable */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  :root {
+    --primary: #40e0d0;
+    --primary-foreground: #ffffff;
+    --secondary: #ff8c00;
+    --secondary-foreground: #ffffff;
+    --accent: #ffa500;
+    --accent-foreground: #ffffff;
+    --background: #f0f8ff;
+    --foreground: #333333;
+    --card: #ffffff;
+    --card-foreground: #333333;
+    --popover: #ffffff;
+    --popover-foreground: #333333;
+    --muted: #f1f5f9;
+    --muted-foreground: #64748b;
+    --border: #e2e8f0;
+    --input: #e2e8f0;
+    --ring: #40e0d0;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: #1a1a1a;
+    --foreground: #ffffff;
+    --card: #2a2a2a;
+    --card-foreground: #ffffff;
+    --popover: #2a2a2a;
+    --popover-foreground: #ffffff;
+    --muted: #374151;
+    --muted-foreground: #9ca3af;
+    --border: #374151;
+    --input: #374151;
+  }
+
+  body {
+    font-family: "Open Sans", sans-serif;
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Poppins", sans-serif;
+  }
+
+  .btn {
+    @apply font-bold py-2 px-4 rounded;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-primary-foreground;
+  }
+
+  .btn-primary:hover {
+    background-color: rgba(
+      64,
+      224,
+      208,
+      0.9
+    ); /* Use rgba format for hover state */
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground;
+  }
+
+  .btn-secondary:hover {
+    background-color: rgba(
+      255,
+      140,
+      0,
+      0.9
+    ); /* Use rgba format for hover state */
+  }
+
+  .card {
+    @apply bg-card text-card-foreground rounded-lg shadow-md p-6;
+  }
+
+  .input {
+    @apply bg-input text-foreground rounded-md p-2 border border-border focus:outline-none focus:ring-2 focus:ring-ring;
+  }
+
+  .label {
+    @apply block text-sm font-medium text-foreground mb-1;
+  }
+
+  .transition-all {
+    @apply duration-300 ease-in-out;
+    transition-property: all;
+  }
+
+  .hover-scale {
+    @apply hover:scale-105 transition-all;
+  }
+
+  .gradient-bg {
+    @apply bg-gradient-to-br from-primary to-secondary;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--background);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary);
+  }
+
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  @keyframes slideIn {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-slideIn {
+    animation: slideIn 0.5s ease-in-out;
+  }
+
+  /* Responsive typography */
+  @media (max-width: 640px) {
+    html {
+      font-size: 14px;
+    }
+  }
+
+  @media (min-width: 641px) and (max-width: 1024px) {
+    html {
+      font-size: 16px;
+    }
+  }
+
+  @media (min-width: 1025px) {
+    html {
+      font-size: 18px;
+    }
+  }
+
+  /* Accessibility */
+  .sr-only {
+    @apply absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0;
+  }
+
+  /* Print styles */
+  @media print {
+    body {
+      background-color: white;
+      color: black;
+    }
+
+    .no-print {
+      display: none;
+    }
+  }
+}
