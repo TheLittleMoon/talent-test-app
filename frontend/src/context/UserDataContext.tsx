@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext, ReactNode } from 'react';
+import React, { createContext, useState, useContext, ReactNode, useEffect } from 'react';
 
 // Define the shape of the user data, including talents, interests, and work preferences
 export type GptResponse = {
@@ -62,6 +62,11 @@ export const UserDataProvider = ({ children }: { children: ReactNode }) => {
     },
     talentTestResults: {},              // Initialize talentTestResults as an empty object
   });
+
+    // Save userData to sessionStorage whenever it changes
+    useEffect(() => {
+      sessionStorage.setItem('userData', JSON.stringify(userData));
+    }, [userData]);
 
   // Function to update user data with partial data (only updating specific fields as needed)
   const updateUserData = (newData: Partial<UserData>) => {
