@@ -142,7 +142,7 @@ const InterestsPage: React.FC = () => {
           </div>
         </Card>
 
-        <div className="max-w-xl mx-auto mt-8">
+        <div className="w-full max-w-4xl mx-auto mt-8 px-4">
           <Progress currentStep={3} totalSteps={6} steps={steps} />
         </div>
       </div>

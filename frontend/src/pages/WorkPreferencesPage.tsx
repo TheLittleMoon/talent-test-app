@@ -4,6 +4,8 @@ import { useUserData } from '../context/UserDataContext';
 import { formatGptPrompt } from '../utils/formatGptPrompt';
 import Layout from '../components/Layout'; // Import Layout for consistent structure
 import { MapPin, Clock, DollarSign, Activity, Languages } from 'lucide-react'; // Import icons
+import Progress from '../components/Progress';
+
 
 const WorkPreferencesPage: React.FC = () => {
   const { userData, setUserData, updateUserData } = useUserData();
@@ -14,6 +16,8 @@ const WorkPreferencesPage: React.FC = () => {
   const [language, setLanguage] = useState('');
   const [loading] = useState(false);
   const navigate = useNavigate();
+
+  const steps = ['Persönliche Daten', 'Talente', 'Hobbys', 'Fächer', 'Arbeitspräferenzen', 'Ergebnisse'];
 
   const handleSubmit = async () => {
     // Check that all preferences are selected
@@ -94,6 +98,7 @@ const WorkPreferencesPage: React.FC = () => {
               <option value="Remote">Remote</option>
               <option value="Büro">Büro</option>
               <option value="Hybrid">Hybrid</option>
+              <option value="Doesn't Matter">Egal</option> {/* Doesn't Matter Option */}
             </select>
           </div>
 
@@ -103,30 +108,16 @@ const WorkPreferencesPage: React.FC = () => {
               <Clock className="mr-2 text-primary" />
               Arbeitszeiten
             </label>
-            <div className="mt-2">
-              <label className="flex items-center">
-                <input
-                  type="radio"
-                  name="workingTime"
-                  value="Flexible"
-                  checked={workingTime === 'Flexible'}
-                  onChange={(e) => setWorkingTime(e.target.value)}
-                  className="mr-2"
-                />
-                Flexible
-              </label>
-              <label className="flex items-center mt-2">
-                <input
-                  type="radio"
-                  name="workingTime"
-                  value="Feste Zeiten"
-                  checked={workingTime === 'Feste Zeiten'}
-                  onChange={(e) => setWorkingTime(e.target.value)}
-                  className="mr-2"
-                />
-                Feste Zeiten
-              </label>
-            </div>
+            <select
+              value={workingTime}
+              onChange={(e) => setWorkingTime(e.target.value)}
+              className="input mt-2"
+            >
+              <option value="" disabled>Wähle</option>
+              <option value="Flexible">Flexible</option>
+              <option value="Feste Zeiten">Feste Zeiten</option>
+              <option value="Doesn't Matter">Egal</option> {/* Doesn't Matter Option */}
+            </select>
           </div>
 
           {/* Salary Importance */}
@@ -143,6 +134,7 @@ const WorkPreferencesPage: React.FC = () => {
               <option value="" disabled>Wähle</option>
               <option value="Yes">Ja</option>
               <option value="No">Nein</option>
+              <option value="Doesn't Matter">Egal</option> {/* Doesn't Matter Option */}
             </select>
           </div>
 
@@ -152,30 +144,16 @@ const WorkPreferencesPage: React.FC = () => {
               <Activity className="mr-2 text-primary" />
               Physische Arbeit
             </label>
-            <div className="mt-2">
-              <label className="flex items-center">
-                <input
-                  type="radio"
-                  name="physicalWork"
-                  value="Ja"
-                  checked={physicalWork === 'Ja'}
-                  onChange={(e) => setPhysicalWork(e.target.value)}
-                  className="mr-2"
-                />
-                Ja
-              </label>
-              <label className="flex items-center mt-2">
-                <input
-                  type="radio"
-                  name="physicalWork"
-                  value="Nein"
-                  checked={physicalWork === 'Nein'}
-                  onChange={(e) => setPhysicalWork(e.target.value)}
-                  className="mr-2"
-                />
-                Nein
-              </label>
-            </div>
+            <select
+              value={physicalWork}
+              onChange={(e) => setPhysicalWork(e.target.value)}
+              className="input mt-2"
+            >
+              <option value="" disabled>Wähle</option>
+              <option value="Ja">Ja</option>
+              <option value="Nein">Nein</option>
+              <option value="Doesn't Matter">Egal</option> {/* Doesn't Matter Option */}
+            </select>
           </div>
 
           {/* Language Preference Input */}
@@ -193,6 +171,7 @@ const WorkPreferencesPage: React.FC = () => {
               <option value="Deutsch">Deutsch</option>
               <option value="Englisch">Englisch</option>
               <option value="Flexible">Flexible</option>
+              <option value="Doesn't Matter">Egal</option> {/* Doesn't Matter Option */}
             </select>
           </div>
 
@@ -203,20 +182,8 @@ const WorkPreferencesPage: React.FC = () => {
             </button>
           </div>
         </div>
-
-        {/* Progress Bar */}
-        <div className="w-full max-w-xl mt-8">
-          <div className="flex justify-between text-sm">
-            <span>Persönliche Daten</span>
-            <span>Talente</span>
-            <span>Hobbys</span>
-            <span>Fächer</span>
-            <span className="font-semibold">Arbeitspräferenzen</span>
-            <span>Ergebnisse</span>
-          </div>
-          <div className="relative mt-2 h-2 bg-border rounded-full">
-            <div className="absolute left-0 top-0 h-2 bg-primary rounded-full" style={{ width: '80%' }}></div>
-          </div>
+        <div className="w-full max-w-4xl mx-auto mt-8 px-4">
+          <Progress currentStep={5} totalSteps={6} steps={steps} />
         </div>
       </div>
     </Layout>

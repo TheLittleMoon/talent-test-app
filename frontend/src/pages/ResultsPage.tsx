@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useUserData } from '../context/UserDataContext';
 import Layout from '../components/Layout';  // Importing Layout for consistent structure
 import { parseCareers } from '../utils/parsingUtils';  // Import the parsing utility
+import Progress from '../components/Progress';
+
+const steps = ['Persönliche Daten', 'Talente', 'Hobbys', 'Fächer', 'Arbeitspräferenzen', 'Ergebnisse'];
 
 // Make sure gptResponse is typed as a string
 interface UserData {
@@ -53,6 +56,9 @@ const ResultsPage: React.FC = () => {
               ))}
             </div>
           )}
+        </div>
+        <div className="w-full max-w-4xl mx-auto mt-8 px-4">
+          <Progress currentStep={6} totalSteps={6} steps={steps} />
         </div>
       </div>
     </Layout>

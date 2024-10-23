@@ -8,26 +8,35 @@
 
 @layer utilities {
   :root {
-    --primary: #40e0d0;
+    /* Main colors */
+    --primary: #2ecc71; /* Dark green for header and buttons */
     --primary-foreground: #ffffff;
-    --secondary: #ff8c00;
+    
+    --secondary: #27ae60; /* Slightly darker green for "Next" button */
     --secondary-foreground: #ffffff;
-    --accent: #ffa500;
+  
+    --accent: #f39c12; /* Orange for "Add" button */
     --accent-foreground: #ffffff;
-    --background: #f0f8ff;
-    --foreground: #333333;
+  
+    /* Background colors */
+    --background: #e8f8f5; /* Light mint green for page background */
+    --foreground: #2ecc71; /* Dark green for main text */
+    
     --card: #ffffff;
     --card-foreground: #333333;
+  
     --popover: #ffffff;
     --popover-foreground: #333333;
+  
     --muted: #f1f5f9;
     --muted-foreground: #64748b;
-    --border: #e2e8f0;
+  
+    --border: #bdc3c7; /* Light grey for borders */
     --input: #e2e8f0;
     --ring: #40e0d0;
     --radius: 0.5rem;
   }
-
+  
   .dark {
     --background: #1a1a1a;
     --foreground: #ffffff;

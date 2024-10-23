@@ -141,9 +141,8 @@ const PersonalInfoPage: React.FC = () => {
           </form>
         </Card>
 
-        <div className="max-w-2xl mx-auto mt-8">
-          {/* Application Progress Bar */}
-          <Progress currentStep={1} totalSteps={6} steps={steps} /> {/* Use steps prop */}
+        <div className="w-full max-w-4xl mx-auto mt-8 px-4">
+          <Progress currentStep={1} totalSteps={6} steps={steps} />
         </div>
       </div>
     </Layout>

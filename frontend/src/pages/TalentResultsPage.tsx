@@ -3,6 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import { useUserData } from '../context/UserDataContext';
 import { talents } from '../data/talents';  // Assuming we have a talents data file with predefined talent descriptions
 import Layout from '../components/Layout'; // Importing Layout for consistent structure
+import Progress from '../components/Progress';
+
+const steps = ['Persönliche Daten', 'Talente', 'Hobbys', 'Fächer', 'Arbeitspräferenzen', 'Ergebnisse'];
+
 
 const TalentResultsPage: React.FC = () => {
   const { userData } = useUserData();
@@ -84,6 +88,9 @@ const TalentResultsPage: React.FC = () => {
               {loading ? 'Lädt...' : 'Weiter zu den Ergebnissen'}
             </button>
           </div>
+        </div>
+        <div className="w-full max-w-4xl mx-auto mt-8 px-4">
+          <Progress currentStep={6} totalSteps={6} steps={steps} />
         </div>
       </div>
     </Layout>

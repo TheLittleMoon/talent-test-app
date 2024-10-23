@@ -8,6 +8,8 @@ import Button from '../components/Button';  // Importing Button for custom style
 import Progress from '../components/Progress';  // Application Progress bar component
 import Layout from '../components/Layout';  // Importing Layout to wrap content
 
+const steps = ['Persönliche Daten', 'Talente', 'Hobbys', 'Fächer', 'Arbeitspräferenzen', 'Ergebnisse'];
+
 const TalentTestPage: React.FC = () => {
   const { userData, updateUserData } = useUserData();
   const [currentScenarioIndex, setCurrentScenarioIndex] = useState(0);
@@ -124,11 +126,9 @@ const TalentTestPage: React.FC = () => {
         </Card>
 
         {/* Application Progress Bar */}
-        <Progress 
-          currentStep={2} 
-          totalSteps={6} 
-          steps={['Persönliche Daten', 'Talente', 'Hobbys', 'Fächer', 'Arbeitspräferenzen', 'Ergebnisse']} 
-        />
+        <div className="w-full max-w-4xl mx-auto mt-8 px-4">
+          <Progress currentStep={2} totalSteps={6} steps={steps} />
+        </div>
       </div>
     </Layout>
   );
