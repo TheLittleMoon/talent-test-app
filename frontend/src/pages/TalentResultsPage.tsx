@@ -7,12 +7,13 @@ import Layout from '../components/Layout'; // Importing Layout for consistent st
 const TalentResultsPage: React.FC = () => {
   const { userData } = useUserData();
   const [topTalents, setTopTalents] = useState<any[]>([]);
-  const [expandedTalentIds, setExpandedTalentIds] = useState<number[]>([]);  // Track expanded talents
+  const [expandedTalentIds, setExpandedTalentIds] = useState<number[]>([]);
+  const [loading, setLoading] = useState(true);  // Track loading state for GPT response
   const navigate = useNavigate();
 
   useEffect(() => {
+    // Fetch local talent results
     if (userData.talentTestResults) {
-      // Sort talents by score and take the top 10
       const sortedTalents = Object.entries(userData.talentTestResults)
         .sort(([, a], [, b]) => b - a)
         .slice(0, 10)
@@ -20,7 +21,12 @@ const TalentResultsPage: React.FC = () => {
 
       setTopTalents(sortedTalents);
     }
-  }, [userData.talentTestResults]);
+
+    // Check if GPT response is loaded
+    if (userData.gptResponse) {
+      setLoading(false);  // GPT response is available, allow navigation
+    }
+  }, [userData.talentTestResults, userData.gptResponse]);
 
   const handleExpandTalent = (id: number) => {
     if (expandedTalentIds.includes(id)) {
@@ -31,7 +37,9 @@ const TalentResultsPage: React.FC = () => {
   };
 
   const handleNext = () => {
-    navigate('/final-results');
+    if (!loading) {
+      navigate('/final-results');
+    }
   };
 
   return (
@@ -43,15 +51,12 @@ const TalentResultsPage: React.FC = () => {
           {/* Display Top Talents */}
           {topTalents.length > 0 ? (
             <div className="space-y-4">
-              {/* Show full description for the top 3 talents */}
               {topTalents.slice(0, 3).map((talent, index) => (
                 <div key={talent.id} className="p-4 bg-primary rounded-md">
                   <h3 className="text-lg font-bold">{index + 1}. {talent.name}</h3>
                   <p className="mt-2 text-sm">{talent.description}</p>
                 </div>
               ))}
-
-              {/* Show the remaining talents as expandable boxes */}
               {topTalents.slice(3).map((talent, index) => (
                 <div key={talent.id} className="p-4 bg-secondary rounded-md">
                   <div className="flex justify-between items-center">
@@ -73,10 +78,10 @@ const TalentResultsPage: React.FC = () => {
             <p className="text-center">Lade deine Talente...</p>
           )}
 
-          {/* Next Button */}
+          {/* Next Button - Disabled until loading is false */}
           <div className="mt-6 text-center">
-            <button onClick={handleNext} className="btn btn-primary w-full">
-              Weiter zu den Ergebnissen
+            <button onClick={handleNext} className="btn btn-primary w-full" disabled={loading}>
+              {loading ? 'Lädt...' : 'Weiter zu den Ergebnissen'}
             </button>
           </div>
         </div>

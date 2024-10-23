@@ -12,7 +12,7 @@ const WorkPreferencesPage: React.FC = () => {
   const [salaryImportance, setSalaryImportance] = useState('');
   const [physicalWork, setPhysicalWork] = useState('');
   const [language, setLanguage] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [loading] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async () => {
@@ -21,7 +21,7 @@ const WorkPreferencesPage: React.FC = () => {
       alert('Bitte fülle alle Felder aus');
       return;
     }
-
+  
     const updatedUserData = {
       ...userData,
       workPreferences: {
@@ -32,27 +32,24 @@ const WorkPreferencesPage: React.FC = () => {
         language,
       },
     };
-
+  
     // Log work preferences before submission
     console.log('Work preferences submitted:', updatedUserData.workPreferences);
-
+  
     // Update userData in context
     setUserData(updatedUserData);
-
-    // Navigate to Talent Results page immediately
+  
+    // Immediately navigate to the Talent Results page
     navigate('/talent-results');
-
-    // Generate the GPT prompt
-    const prompt = formatGptPrompt(updatedUserData);
-
-    // Log the generated GPT prompt for debugging purposes
-    console.log('Generated GPT prompt:', prompt);
-
-    // Set loading state
-    setLoading(true);
-
+  
     try {
-      // Send user data and prompt to the backend asynchronously
+      // Generate the GPT prompt
+      const prompt = formatGptPrompt(updatedUserData);
+  
+      // Log the generated GPT prompt for debugging purposes
+      console.log('Generated GPT prompt:', prompt);
+  
+      // Start the GPT API call
       const response = await fetch('http://localhost:3000/api/talent-test/results', {
         method: 'POST',
         headers: {
@@ -60,22 +57,19 @@ const WorkPreferencesPage: React.FC = () => {
         },
         body: JSON.stringify({ userInfo: updatedUserData, prompt }),
       });
-
+  
       if (!response.ok) {
         throw new Error('Error submitting data to the server');
       }
-
+  
       const data = await response.json();
       console.log('GPT and DB response:', data);
-
+  
       // Update userData with GPT response
       updateUserData({ gptResponse: data.gptResponse });
     } catch (error) {
       console.error('Error submitting data:', error);
       alert('Fehler beim Senden der Daten. Bitte versuche es erneut.');
-    } finally {
-      // Reset loading state
-      setLoading(false);
     }
   };
 
