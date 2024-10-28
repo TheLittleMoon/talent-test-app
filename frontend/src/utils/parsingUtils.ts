@@ -11,6 +11,7 @@ interface Career {
   name: string;
   description: string;
   educationPath: string;
+  
 }
 
 export function parseCareers(gptResponse: string): Career[] {

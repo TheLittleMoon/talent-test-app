@@ -24,7 +24,7 @@ export const scenarios = [
         },
         {
           "id": "b",
-          "text": "Ich kümmere mich um die technische Ausstattung für Musik und Präsentationen, um alles reibungslos ablaufen zu lassen.",
+          "text": "Ich kümmere mich um die technische Ausstattung für Musik und Präsentationen, damit alles reibungslos abläuft.",
           "talents": [
             { "talentId": 1, "weight": 3 }, { "talentId": 2, "weight": 4 }, { "talentId": 3, "weight": 0 },
             { "talentId": 4, "weight": 2 }, { "talentId": 5, "weight": 1 }, { "talentId": 6, "weight": 0 },
@@ -226,7 +226,7 @@ export const scenarios = [
         },
         {
           "id": "d",
-          "text": "Ich beobachte erst einmal, wie er sich in die Klasse einfügt, und sehe, ob er Hilfe benötigt.",
+          "text": "Ich beobachte erst einmal, wie er sich in die Klasse einfügt, und schaue, ob er Hilfe benötigt.",
           "talents": [
             { "talentId": 1, "weight": 4 }, { "talentId": 2, "weight": 2 }, { "talentId": 3, "weight": 0 },
             { "talentId": 4, "weight": 3 }, { "talentId": 5, "weight": 1 }, { "talentId": 6, "weight": 1 },
@@ -251,7 +251,7 @@ export const scenarios = [
       "answers": [
         {
           "id": "a",
-          "text": "Ich übernehme die Verantwortung und sorge dafür, dass wir gemeinsam das Ziel erreichen.",
+          "text": "Ich führe meine Aufgabe eigenständig durch, denn die Gruppenführung ist für mich zweitrangig.",
           "talents": [
             { "talentId": 1, "weight": 0 }, { "talentId": 2, "weight": 3 }, { "talentId": 3, "weight": 0 },
             { "talentId": 4, "weight": 2 }, { "talentId": 5, "weight": 1 }, { "talentId": 6, "weight": 0 },
@@ -801,7 +801,7 @@ export const scenarios = [
         },
         {
           "id": "d",
-          "text": "Ich stütze ihn und gehe mit ihm weiter, um ihn zu beruhigen und aufzumuntern.",
+          "text": "Ich will von unserem Plan nicht abweichen und lasse ihn mit einem Freund zurückkehren.",
           "talents": [
             { "talentId": 1, "weight": 1 }, { "talentId": 2, "weight": 0 }, { "talentId": 3, "weight": 0 },
             { "talentId": 4, "weight": 0 }, { "talentId": 5, "weight": 9 }, { "talentId": 6, "weight": 8 },
@@ -884,7 +884,7 @@ export const scenarios = [
         },
         {
           "id": "d",
-          "text": "Ich analysiere die Strategie des Teams und schlage taktische Änderungen vor, um unser Zusammenspiel zu verbessern.",
+          "text": "Ich überdenke die Strategie des Teams und schlage taktische Änderungen vor, um unser Zusammenspiel zu verbessern.",
           "talents": [
             { "talentId": 1, "weight": 7 }, { "talentId": 2, "weight": 9 }, { "talentId": 3, "weight": 3 },
             { "talentId": 4, "weight": 2 }, { "talentId": 5, "weight": 0 }, { "talentId": 6, "weight": 0 },
@@ -1368,7 +1368,7 @@ export const scenarios = [
         },
         {
           "id": "b",
-          "text": "Ich überlege, wie ich dieses Thema mit dem, was ich bereits studiere, verbinden kann und finde Möglichkeiten, es in meine aktuellen Projekte einzubringen.",
+          "text": "Ich überlege, wie ich dieses Thema mit dem, was ich bereits lerne, verbinden kann und finde Möglichkeiten, es in meine aktuellen Projekte einzubringen.",
           "talents": [
             { "talentId": 1, "weight": 3 },  // Analytisches Denken
             { "talentId": 2, "weight": 8 },  // Strategisches Planen
@@ -1788,7 +1788,7 @@ export const scenarios = [
         },
         {
           "id": "c",
-          "text": "Ich bereite eine Rede vor und erzähle lustige und herzliche Geschichten über das Geburtstagskind, um die Gäste zu unterhalten.",
+          "text": "Ich möchte eigentlich nicht mithelfen.",
           "talents": [
             { "talentId": 1, "weight": 1 }, { "talentId": 2, "weight": 0 }, { "talentId": 3, "weight": 3 },
             { "talentId": 4, "weight": 0 }, { "talentId": 5, "weight": 7 }, { "talentId": 6, "weight": 8 },
@@ -1832,7 +1832,7 @@ export const scenarios = [
       "answers": [
         {
           "id": "a",
-          "text": "Ich erstelle einen detaillierten Plan, der einen Zeitplan enthält und Aufgaben an andere Freunde verteilt, damit alles reibungslos verläuft.",
+          "text": "Ich erstelle einen detaillierten Plan, der alle Aufgaben an andere Freunde verteilt, damit alles reibungslos verläuft.",
           "talents": [
             { "talentId": 1, "weight": 3 }, { "talentId": 2, "weight": 6 }, { "talentId": 3, "weight": 2 },
             { "talentId": 4, "weight": 5 }, { "talentId": 5, "weight": 1 }, { "talentId": 6, "weight": 3 },
@@ -1971,7 +1971,7 @@ export const scenarios = [
         },
         {
           "id": "d",
-          "text": "Ich warte darauf, dass jemand kommt, um den Brief zu suchen, in der Annahme, dass sie an den Ort zurückkehren könnten, an dem er verloren wurde.",
+          "text": "Ich finde den Brief nicht wichtig und lasse ihn, wo ich ihn gefunden habe.",
           "talents": [
             { "talentId": 1, "weight": 1 }, { "talentId": 2, "weight": 1 }, { "talentId": 3, "weight": 0 },
             { "talentId": 4, "weight": 2 }, { "talentId": 5, "weight": 2 }, { "talentId": 6, "weight": 0 },
@@ -2050,7 +2050,7 @@ export const scenarios = [
         },
         {
           "id": "c",
-          "text": "Ich hinterfrage kritisch, ob der Busfahrer die richtige Route kennt, und überlege, wie wir das überprüfen können.",
+          "text": " Ich vertraue darauf, dass der Busfahrer den Weg kennt.",
           "talents": [
             { "talentId": 1, "weight": 9 }, { "talentId": 2, "weight": 8 }, { "talentId": 25, "weight": 6 },
             { "talentId": 19, "weight": 7 }, { "talentId": 30, "weight": 5 }
@@ -2431,7 +2431,7 @@ export const scenarios = [
         },
         {
           "id": "c",
-          "text": "Ich organisiere ein kleines Turnier, bei dem beide Gruppen die Gelegenheit haben, den Platz für das Spiel zu nutzen, während wir den Gewinner belohnen.",
+          "text": "Ich organisiere ein kleines Turnier, bei dem beide Gruppen die Gelegenheit haben, den Platz für das Spiel zu nutzen.",
           "talents": [
             { "talentId": 1, "weight": 4 }, { "talentId": 2, "weight": 6 }, { "talentId": 3, "weight": 6 },
             { "talentId": 4, "weight": 7 }, { "talentId": 5, "weight": 5 }, { "talentId": 6, "weight": 4 },
@@ -2450,7 +2450,7 @@ export const scenarios = [
         },
         {
           "id": "d",
-          "text": "Ich warte ab, bis sich die Situation beruhigt, und unterstütze dann den Vorschlag, der mir am besten erscheint.",
+          "text": "Ich warte ab, bis sich die Situation beruhigt.",
           "talents": [
             { "talentId": 1, "weight": 2 }, { "talentId": 2, "weight": 2 }, { "talentId": 3, "weight": 0 },
             { "talentId": 4, "weight": 3 }, { "talentId": 5, "weight": 3 }, { "talentId": 6, "weight": 4 },
@@ -2475,7 +2475,7 @@ export const scenarios = [
       "answers": [
         {
           "id": "a",
-          "text": "Ich übernehme die Leitung und koordiniere die verschiedenen Aufgaben.",
+          "text": "Ich sehe ein, dass das Projekt für mich zu aufwändig ist und lasse es sein.",
           "talents": [
             { "talentId": 1, "weight": 4 }, { "talentId": 2, "weight": 8 }, { "talentId": 3, "weight": 2 },
             { "talentId": 4, "weight": 7 }, { "talentId": 5, "weight": 3 }, { "talentId": 6, "weight": 5 },
@@ -2595,7 +2595,7 @@ export const scenarios = [
         },
         {
           "id": "c",
-          "text": "Ich biete an, vor dem Turnier ein motivierendes Lied zu komponieren und zu spielen, um die Stimmung im Team zu heben.",
+          "text": "Ich warte ab, ob sich jemand von selbst meldet.",
           "talents": [
             { "talentId": 1, "weight": 2 }, { "talentId": 2, "weight": 1 }, { "talentId": 3, "weight": 7 },
             { "talentId": 4, "weight": 3 }, { "talentId": 5, "weight": 6 }, { "talentId": 6, "weight": 5 },
@@ -2696,7 +2696,7 @@ export const scenarios = [
         },
         {
           "id": "d",
-          "text": "Ich beginne mit leichtem Training, um meinen Körper langsam daran zu gewöhnen.",
+          "text": "Ich beginne mit leichtem Training und mache mir keinen Druck, auch wenn es nicht klappt.",
           "talents": [
             { "talentId": 1, "weight": 4 }, { "talentId": 2, "weight": 3 }, { "talentId": 3, "weight": 2 },
             { "talentId": 4, "weight": 7 }, { "talentId": 5, "weight": 3 }, { "talentId": 6, "weight": 0 },
@@ -2822,7 +2822,7 @@ export const scenarios = [
         },
         {
           "id": "b",
-          "text": "Ich teile nicht nur meine Lernmaterialien, sondern erarbeite auch mit ihm einen detaillierten Lernplan, der auf seine Schwächen und Stärken eingeht.",
+          "text": "Ich teile meine Lernmaterialien mit ihm und und zeige ihm wie ich lerne.",
           "talents": [
             { "talentId": 1, "weight": 3 }, { "talentId": 2, "weight": 8 }, { "talentId": 3, "weight": 2 },
             { "talentId": 4, "weight": 6 }, { "talentId": 5, "weight": 4 }, { "talentId": 6, "weight": 5 },
@@ -2841,7 +2841,7 @@ export const scenarios = [
         },
         {
           "id": "c",
-          "text": "Ich führe gemeinsam mit ihm Diskussionen über die schwierigen Themen und erarbeite verständliche Beispiele.",
+          "text": "Ich empfehle ihm sich an einen Nachhilfelehrer zu wenden.",
           "talents": [
             { "talentId": 1, "weight": 8 }, { "talentId": 2, "weight": 3 }, { "talentId": 3, "weight": 5 },
             { "talentId": 4, "weight": 3 }, { "talentId": 5, "weight": 5 }, { "talentId": 6, "weight": 7 },
@@ -2860,7 +2860,7 @@ export const scenarios = [
         },
         {
           "id": "d",
-          "text": "Ich helfe ihm nicht mit den Aufgaben, dafür helfe ihm dabei, Stress zu bewältigen und die optimale mentale Einstellung zum Lernen zu erzielen.",
+          "text": "Ich helfe ihm nicht mit den Aufgaben, dafür helfe ihm dabei, den Lernstress zu bewältigen.",
           "talents": [
             { "talentId": 1, "weight": 2 }, { "talentId": 2, "weight": 2 }, { "talentId": 3, "weight": 3 },
             { "talentId": 4, "weight": 4 }, { "talentId": 5, "weight": 6 }, { "talentId": 6, "weight": 3 },
@@ -3024,7 +3024,7 @@ export const scenarios = [
         },
         {
           "id": "d",
-          "text": "Ich priorisiere das Dringende und teile dem Team meine Situation mit, damit sie Bescheid wissen.",
+          "text": "Ich plane nicht und erledige meine Aufgaben so gut ich kann, auch wenn es zeitlich nicht reicht.",
           "talents": [
             { "talentId": 1, "weight": 2 }, { "talentId": 2, "weight": 3 }, { "talentId": 3, "weight": 1 },
             { "talentId": 4, "weight": 4 }, { "talentId": 5, "weight": 2 }, { "talentId": 6, "weight": 2 },
@@ -3131,7 +3131,7 @@ export const scenarios = [
       "answers": [
         {
           "id": "a",
-          "text": "Ich lerne meinen Text schnell auswendig und unterstütze andere beim Lernen.",
+          "text": "Ich übernehme eine grosse Rolle und lerne meinen Text schnell auswendig.",
           "talents": [
             { "talentId": 1, "weight": 2 }, { "talentId": 2, "weight": 1 }, { "talentId": 3, "weight": 2 },
             { "talentId": 4, "weight": 4 }, { "talentId": 5, "weight": 3 }, { "talentId": 6, "weight": 5 },
@@ -3150,7 +3150,7 @@ export const scenarios = [
         },
         {
           "id": "b",
-          "text": "Ich bespreche mit meinen Mitschülern ihre Rollen, falls sie Fragen haben.",
+          "text": "Ich versetze mich in meine Rolle und übe mit meinen Mitschülern.",
           "talents": [
             { "talentId": 1, "weight": 2 }, { "talentId": 2, "weight": 1 }, { "talentId": 3, "weight": 1 },
             { "talentId": 4, "weight": 2 }, { "talentId": 5, "weight": 4 }, { "talentId": 6, "weight": 6 },
@@ -3169,7 +3169,7 @@ export const scenarios = [
         },
         {
           "id": "c",
-          "text": "Ich komponiere oder spiele die Hintergrundmusik für das Stück.",
+          "text": "Ich bleibe lieber hinter der Bühne und kümmere mich um die musikalische Inszenierung",
           "talents": [
             { "talentId": 1, "weight": 1 }, { "talentId": 2, "weight": 2 }, { "talentId": 3, "weight": 5 },
             { "talentId": 4, "weight": 3 }, { "talentId": 5, "weight": 2 }, { "talentId": 6, "weight": 3 },

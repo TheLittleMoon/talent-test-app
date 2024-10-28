@@ -57,25 +57,25 @@ const TalentResultsPage: React.FC = () => {
             <div className="space-y-4">
               {topTalents.slice(0, 3).map((talent, index) => (
                 <div key={talent.id} className="p-4 bg-primary rounded-md">
-                  <h3 className="text-lg font-bold">{index + 1}. {talent.name}</h3>
-                  <p className="mt-2 text-sm">{talent.description}</p>
-                </div>
+                <h3 className="text-lg font-bold text-primary-foreground">{index + 1}. {talent.name}</h3>
+                <p className="mt-2 text-sm text-primary-foreground">{talent.description}</p>
+              </div>
               ))}
               {topTalents.slice(3).map((talent, index) => (
                 <div key={talent.id} className="p-4 bg-secondary rounded-md">
-                  <div className="flex justify-between items-center">
-                    <h3 className="text-lg font-bold">{index + 4}. {talent.name}</h3>
-                    <button
-                      className="text-primary font-semibold"
-                      onClick={() => handleExpandTalent(talent.id)}
-                    >
-                      {expandedTalentIds.includes(talent.id) ? 'Weniger anzeigen' : 'Mehr anzeigen'}
-                    </button>
-                  </div>
-                  {expandedTalentIds.includes(talent.id) && (
-                    <p className="mt-2 text-sm">{talent.description}</p>
-                  )}
+                <div className="flex justify-between items-center">
+                  <h3 className="text-lg font-bold text-secondary-foreground">{index + 4}. {talent.name}</h3>
+                  <button
+                    className="text-secondary-foreground font-semibold"
+                    onClick={() => handleExpandTalent(talent.id)}
+                  >
+                    {expandedTalentIds.includes(talent.id) ? 'Weniger anzeigen' : 'Mehr anzeigen'}
+                  </button>
                 </div>
+                {expandedTalentIds.includes(talent.id) && (
+                  <p className="mt-2 text-sm text-secondary-foreground">{talent.description}</p>
+                )}
+              </div>
               ))}
             </div>
           ) : (

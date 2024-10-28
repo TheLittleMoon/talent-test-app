@@ -49,9 +49,9 @@ const ResultsPage: React.FC = () => {
               {/* Map through the parsed career data and render each one */}
               {parsedCareers.map((career, index) => (
                 <div key={index} className="p-4 bg-primary rounded-md">
-                  <h3 className="text-lg font-bold">Karriere {index + 1}: {career.name}</h3>
-                  <p className="mt-2 text-sm"><strong>Beschreibung:</strong> {career.description}</p>
-                  <p className="mt-2 text-sm"><strong>Bildungspfad:</strong> {career.educationPath}</p>
+                  <h3 className="text-lg font-bold text-primary-foreground">Karriere {index + 1}: {career.name}</h3>
+                  <p className="mt-2 text-sm text-primary-foreground"><strong>Beschreibung:</strong> {career.description}</p>
+                  <p className="mt-2 text-sm text-primary-foreground"><strong>Bildungspfad:</strong> {career.educationPath}</p>
                 </div>
               ))}
             </div>

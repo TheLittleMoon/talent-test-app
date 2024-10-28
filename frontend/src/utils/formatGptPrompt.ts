@@ -39,23 +39,41 @@ export function formatGptPrompt(userData: UserData): string {
     - Physische Arbeit: ${userData.workPreferences?.physicalWork || 'Nicht angegeben'}
     - Bevorzugte Sprache: ${userData.workPreferences?.language || 'Nicht angegeben'}
 
-    Bitte empfehlen Sie drei Karrierewege und die dazu passenden relevanten Bildungspfade. Antworten Sie im folgenden Format:
+     Bitte empfehlen Sie drei zukunftsrelevante Berufe, die stark mit der Entwicklung von KI und globalen Trends verbunden sind, und ergänzen Sie diese mit relevanten Bildungswegen. Antworten Sie im folgenden Format:
 
     Karriere 1:
-    - Name: [Name der Karriere]
-    - Beschreibung: [Kurze Erklärung, warum diese Karriere zu den Talenten und Präferenzen des Benutzers passt]
-    - Bildungspfad: [Relevante Bildungswege]
+    - Name: [Karrierename]
+    - Beschreibung: [Warum diese Karriere zu den Talenten und Präferenzen passt]
+    - Tägliche Aufgaben: [Kurzbeschreibung der täglichen Aufgaben in diesem Beruf]
+    - Zukunftsperspektive: [Langfristige Projektionen, Relevanz und Expansion durch KI und Trends]
+    - Einstiegsgehalt: [Durchschnittliches Einstiegsgehalt]
+    - Karriereweg: [Mögliche Weiterentwicklung innerhalb des Berufs]
+    - Schlüsselkompetenzen: [Kompetenzen, die in dieser Rolle entwickelt werden können]
+    - Arbeitsumfeld: [Remote, vor Ort oder Hybrid]
+    - Sektor und Nachfrage: [Industrien, in denen die Rolle stark nachgefragt ist]
 
     Karriere 2:
-    - Name: [Name der Karriere]
-    - Beschreibung: [Kurze Erklärung, warum diese Karriere zu den Talenten und Präferenzen des Benutzers passt]
-    - Bildungspfad: [Relevante Bildungswege]
+    - Name: [Karrierename]
+    - Beschreibung: [Warum diese Karriere zu den Talenten und Präferenzen passt]
+    - Tägliche Aufgaben: [Kurzbeschreibung der täglichen Aufgaben in diesem Beruf]
+    - Zukunftsperspektive: [Langfristige Projektionen, Relevanz und Expansion durch KI und Trends]
+    - Einstiegsgehalt: [Durchschnittliches Einstiegsgehalt]
+    - Karriereweg: [Mögliche Weiterentwicklung innerhalb des Berufs]
+    - Schlüsselkompetenzen: [Kompetenzen, die in dieser Rolle entwickelt werden können]
+    - Arbeitsumfeld: [Remote, vor Ort oder Hybrid]
+    - Sektor und Nachfrage: [Industrien, in denen die Rolle stark nachgefragt ist]
 
     Karriere 3:
-    - Name: [Name der Karriere]
-    - Beschreibung: [Kurze Erklärung, warum diese Karriere zu den Talenten und Präferenzen des Benutzers passt]
-    - Bildungspfad: [Relevante Bildungswege]
-  `;
+    - Name: [Karrierename]
+    - Beschreibung: [Warum diese Karriere zu den Talenten und Präferenzen passt]
+    - Tägliche Aufgaben: [Kurzbeschreibung der täglichen Aufgaben in diesem Beruf]
+    - Zukunftsperspektive: [Langfristige Projektionen, Relevanz und Expansion durch KI und Trends]
+    - Einstiegsgehalt: [Durchschnittliches Einstiegsgehalt]
+    - Karriereweg: [Mögliche Weiterentwicklung innerhalb des Berufs]
+    - Schlüsselkompetenzen: [Kompetenzen, die in dieser Rolle entwickelt werden können]
+    - Arbeitsumfeld: [Remote, vor Ort oder Hybrid]
+    - Sektor und Nachfrage: [Industrien, in denen die Rolle stark nachgefragt ist]
+`;
 
   console.log('Generated GPT prompt:', prompt);
   return prompt;

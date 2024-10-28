@@ -12,7 +12,7 @@ export const callGPTApi = async (prompt) => {
         { role: 'system', content: 'You are an assistant that provides career advice.' },  // Optional system message
         { role: 'user', content: prompt },  // User prompt formatted as a message
       ],
-      max_tokens: 500,  // Increased token limit to ensure more detailed responses
+      max_tokens: 1000,  // Increased token limit to ensure more detailed responses
       temperature: 0.7
     }, {
       headers: {
