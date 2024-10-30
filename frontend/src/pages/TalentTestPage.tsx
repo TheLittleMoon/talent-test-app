@@ -35,7 +35,7 @@ const TalentTestPage: React.FC = () => {
   // Function to post talent scores to the backend after every scenario
   const postTalentScores = async (updatedScores: { [key: number]: number }) => {
     try {
-      const response = await fetch('http://134.209.234.6:3000/api/talent-test/talent-test', {
+      const response = await fetch('https://134.209.234.6:3000/api/talent-test/talent-test', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

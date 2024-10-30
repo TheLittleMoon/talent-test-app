@@ -54,7 +54,7 @@ const WorkPreferencesPage: React.FC = () => {
       console.log('Generated GPT prompt:', prompt);
   
       // Start the GPT API call
-      const response = await fetch('http://134.209.234.6:3000/api/talent-test/results', {
+      const response = await fetch('https://134.209.234.6:3000/api/talent-test/results', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
