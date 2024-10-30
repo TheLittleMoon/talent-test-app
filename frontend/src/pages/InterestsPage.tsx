@@ -50,7 +50,7 @@ const InterestsPage: React.FC = () => {
 
   const postSelectedInterests = async (interests: string[]) => {
     try {
-      const response = await fetch('http://134.209.234.6:3000/api/talent-test/interests', {
+      const response = await fetch('https://www.berufsfinder.ai/api/talent-test/interests', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -60,6 +60,7 @@ const InterestsPage: React.FC = () => {
           interests,
         }),
       });
+
 
       if (!response.ok) {
         throw new Error('Failed to submit interests');
