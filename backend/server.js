@@ -17,7 +17,7 @@ dotenv.config();
 const app = express();
 
 // CORS Configuration
-const allowedOrigins = ['http://localhost:5173', 'https://www.berufsfinder.ai'];
+const allowedOrigins = ['http://localhost:5173', 'https://www.berufsfinder.ai', 'https://berufsfinder.ai'];
 app.use(cors({
   origin: function (origin, callback) {
     if (!origin || allowedOrigins.includes(origin)) {
