@@ -37,7 +37,7 @@ const PersonalInfoPage: React.FC = () => {
 
     // Send the personal info data to the backend
     try {
-      const response = await fetch('https://134.209.234.6:3000/api/talent-test/personal-info', {
+      const response = await fetch('https://www.berufsfinder.ai/api/talent-test/personal-info', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
